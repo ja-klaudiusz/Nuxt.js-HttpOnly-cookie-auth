@@ -38,14 +38,14 @@ async function start () {
         te: expirationTime,
         u: 'demo'
       }
-      res.cookie('utrbx', JSON.stringify(auth), { expires: expirationTime, httpOnly: true }).json(auth);     
+      res.cookie('auth', JSON.stringify(auth), { expires: expirationTime, httpOnly: true }).json(auth);     
     } else {
       res.status(401).json({ message: 'Bad credentials' }) 
     }
   })
 
   app.post('/auth/logout', (req, res) => {
-    res.cookie('utrbx','', { expires: new Date(Date.now()), httpOnly: true }).json({ ok: true });
+    res.cookie('auth','', { expires: new Date(Date.now()), httpOnly: true }).json({ ok: true });
   }) 
 
   app.use(nuxt.render)

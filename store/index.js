@@ -20,7 +20,7 @@ export const actions = {
     if (req.headers.cookie) {
       const parsed = cookieparser.parse(req.headers.cookie) 
       try {
-        auth = parsed.utrbx
+        auth = parsed.auth
       } catch (err) {
         // No valid cookie found
       }
